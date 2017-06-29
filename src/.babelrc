@@ -1,0 +1,14 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "uglify": true
+      }
+    ]
+  ],
+  "plugins": [
+    "transform-vue-jsx"
+  ]
+}
