@@ -14,7 +14,7 @@ const plugins = [
     'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
   }),
   vue({
-    css(style, styles, compiler) {},
+    css: false,
     compileOptions: {
       preserveWhitespace: !isProd
     }
@@ -40,7 +40,7 @@ export default {
  * Github: https://github.com/JounQin/vue-async-modal
  */`,
   entry: 'lib/index.js',
-  dest: `dist/modal${isProd ? '.min' : ''}.js`,
+  dest: `dist/vue-async-modal${isProd ? '.min' : ''}.js`,
   format: 'umd',
   moduleName: 'VueAsyncModal',
   amd: {

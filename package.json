@@ -2,19 +2,20 @@
   "name": "vue-async-modal",
   "version": "0.0.1",
   "description": "Flexible modal component for Vue with ability of asynchronous lazy loading",
-  "main": "dist/modal.js",
+  "main": "dist/vue-async-modal.js",
   "module": "lib/index.js",
   "repository": "https://github.com/JounQin/vue-async-modal.git",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --watch webpack.config.babel.js --exec \"webpack-dev-server --hot\"",
-    "doc": "rimraf docs && webpack --progress -p && git add docs",
+    "doc": "rimraf docs && cross-env NODE_ENV=production webpack --progress -p && git add docs",
     "lint": "eslint . --ext js,vue --max-warnings 10",
     "lint:fix": "npm run lint -- --fix",
     "build": "rollup -c",
     "prod": "cross-env NODE_ENV=production npm run build",
-    "dist": "npm run build && npm run prod"
+    "dist": "npm run build && npm run prod",
+    "release": "npm run dist && npm run doc"
   },
   "peerDependencies": {
     "vue": "^2.0.0"

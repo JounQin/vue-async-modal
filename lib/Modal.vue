@@ -1,6 +1,6 @@
 <template lang="pug">
   div(v-if="modals.length")
-    .modal-backdrop(v-if="backdrop")
+    .modal-backdrop(v-if="currModal && currModal.options.backdrop")
     component(v-for="{id, component, props, options} of modals",
     :is="component",
     :key="id",
@@ -33,9 +33,6 @@
       }
     },
     computed: {
-      backdrop() {
-        return this.currModal && this.currModal.options.backdrop
-      },
       currModalId() {
         return this.currModal && this.currModal.id
       }
@@ -59,10 +56,13 @@
         options.show = false
         const modalRef = this.getModalRef(modalId)
         const modalItem = modalRef.$children[0]
-        modalItem.$once('after-leave', () => options.destroy || destroy ? this.removeModal(modalId) : this.resetCurrModal(modalId))
+        return new Promise(resolve => modalItem.$once('after-leave', () => {
+          options.destroy || destroy ? this.removeModal(modalId) : this.resetCurrModal(modalId)
+          resolve()
+        }))
       },
       open(modal) {
-        modal.id || (modal.id = Date.now())
+        modal.id = modal.id || Date.now()
         return isPromise(modal.component) ? modal.component.then(component => this.resolve(Object.assign(modal, {component}))) : this.resolve(modal)
       },
       getModal(modalId) {
@@ -81,7 +81,7 @@
 
         if (m) {
           Object.assign(m.props, props)
-          Object.assign(m.options, options)
+          Object.assign(m.options, DEFAULT_OPTIONS, options)
           component && (m.component = component)
           modal = m
         } else {
@@ -93,19 +93,21 @@
 
         const {currModalId} = this
 
-        const promise = Promise.resolve()
+        let promise = Promise.resolve()
 
         if (!modal.options.show) return promise
 
-        currModalId === id || promise.then(() => this.close())
+        currModalId === id || (promise = promise.then(() => this.close()))
 
-        return new Promise(resolve => {
-          this.$nextTick(() => {
-            const modalRef = this.getModalRef(id)
-            const modalItem = modalRef.$children[0]
-            modalItem.$once('after-enter', () => resolve(promise.then(() => (this.currModal = modal))))
-          })
+        promise.then(() => {
+          this.currModal = modal
         })
+
+        return new Promise(resolve => this.$nextTick(() => {
+          const modalRef = this.getModalRef(id)
+          const modalItem = modalRef.$children[0]
+          modalItem.$once('after-enter', () => resolve(promise.then(() => modal)))
+        }))
       }
     }
   }
