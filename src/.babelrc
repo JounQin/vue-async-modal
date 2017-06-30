@@ -6,7 +6,8 @@
         "modules": false,
         "uglify": true
       }
-    ]
+    ],
+    "stage-0"
   ],
   "plugins": [
     "transform-vue-jsx"

@@ -10,10 +10,11 @@ const isProduction = NODE_ENV === 'production'
 export default {
   resolve: {
     modules: ['lib', 'src', 'node_modules'],
-    extensions: ['.vue', '.js'],
+    extensions: ['.vue', '.js', '.styl'],
     enforceExtension: false,
     enforceModuleExtension: false
   },
+  devtool: !isProduction && 'source-map',
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     path: path.resolve(__dirname, 'docs'),
@@ -36,6 +37,15 @@ export default {
         use: {
           loader: 'vue-loader'
         }
+      },
+      {
+        test: /\.(svg|woff2?|eot|ttf)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000
+          }
+        }
       }
     ]
   },
@@ -43,6 +53,15 @@ export default {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
     }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: isProduction,
+      stylus: {
+        default: {
+          paths: 'node_modules/bootstrap-styl'
+        }
+      }
+    }),
+    new webpack.NamedModulesPlugin(),
     new HtmlPlugin({
       template: 'src/index.ejs',
       title: 'Vue Async Modal',
