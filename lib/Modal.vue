@@ -6,10 +6,13 @@
     :key="id",
     ref="modal",
     v-bind="props",
-    v-show="options.show")
+    v-show="options.show",
+    @click.native="e => handleBackdrop(e, id, options.backdrop)")
 </template>
 <script>
   import Vue from 'vue'
+
+  import {addClass, removeClass} from './utils'
 
   const isPromise = promise => Object.prototype.toString.call(promise) === '[object Promise]' || promise instanceof Promise
 
@@ -18,6 +21,8 @@
     backdrop: true,
     destroy: false
   }
+
+  const NON_TRANSITION_ERR = 'this modal item is not a Vue component, you should use `transition` component and emit `after-leave` event'
 
   export default {
     beforeCreate() {
@@ -37,29 +42,43 @@
         return this.currModal && this.currModal.id
       }
     },
+    watch: {
+      currModal: modal => (modal ? addClass : removeClass)(document.body, 'modal-open')
+    },
     methods: {
-      resetCurrModal(modalId) {
-        modalId === this.currModalId && (this.currModal = null)
-      },
-      removeModal(modalId) {
-        const modalIndex = this.getModalIndex(modalId)
-        modalIndex + 1 && this.modals.splice(modalIndex, 1)
-        this.resetCurrModal(modalId)
-      },
       close(modalId, destroy) {
         modalId = modalId || this.currModalId
-        const promise = Promise.resolve()
-        if (!modalId) return promise
-        const modal = this.getModal(modalId)
-        if (!modal) return promise
+
+        let modal
+
+        if (!modalId || !(modal = this.getModal(modalId))) return Promise.resolve()
+
         const {options} = modal
+
         options.show = false
-        const modalRef = this.getModalRef(modalId)
-        const modalItem = modalRef.$children[0]
-        return new Promise(resolve => modalItem.$once('after-leave', () => {
+
+        const modalItem = this.getModalItem(modalId)
+
+        if (!modalItem) return Promise.reject(new TypeError(NON_TRANSITION_ERR))
+
+        const callback = resolve => {
           options.destroy || destroy ? this.removeModal(modalId) : this.resetCurrModal(modalId)
           resolve()
-        }))
+        }
+
+        return new Promise(resolve => getComputedStyle(modalItem.$el).display === 'none'
+          ? callback(resolve) : modalItem.$once('after-leave', () => callback(resolve)))
+      },
+      clear(immediate) {
+        let promise = Promise.resolve()
+
+        if (immediate) {
+          this.modals = []
+        } else {
+          this.modals.forEach(modal => { promise = promise.then(() => this.close(modal.id, true)) })
+        }
+
+        return promise
       },
       open(modal) {
         modal.id = modal.id || Date.now()
@@ -74,40 +93,56 @@
       getModalRef(modalId) {
         return this.$refs.modal[this.getModalIndex(modalId)]
       },
+      getModalItem(modalId) {
+        const modalRef = this.getModalRef(modalId)
+        return modalRef && modalRef.$children[0]
+      },
       resolve(modal) {
         const {id, component, props, options} = modal
 
         const m = this.getModal(id)
 
         if (m) {
-          Object.assign(m.props, props)
-          Object.assign(m.options, DEFAULT_OPTIONS, options)
           component && (m.component = component)
           modal = m
-        } else {
-          if (!component) return Promise.reject(new ReferenceError('no component passed on initialization'))
-          modal.options = {...DEFAULT_OPTIONS, ...options}
-          modal.props = {...props}
-          this.modals.push(modal)
+        } else if (!component) {
+          return Promise.reject(new ReferenceError('no component passed on initialization'))
         }
 
-        const {currModalId} = this
+        modal.props = {...props}
 
-        let promise = Promise.resolve()
+        const opts = {...DEFAULT_OPTIONS, ...options}
 
-        if (!modal.options.show) return promise
+        if (!opts.show) {
+          modal.options = opts
+          return Promise.resolve()
+        }
 
-        currModalId === id || (promise = promise.then(() => this.close()))
+        const promise = this.currModalId === id ? Promise.resolve() : this.close()
 
-        promise.then(() => {
+        return promise.then(() => {
+          modal.options = opts
+          m || this.modals.push(modal)
           this.currModal = modal
-        })
 
-        return new Promise(resolve => this.$nextTick(() => {
-          const modalRef = this.getModalRef(id)
-          const modalItem = modalRef.$children[0]
-          modalItem.$once('after-enter', () => resolve(promise.then(() => modal)))
-        }))
+          return new Promise((resolve, reject) => this.$nextTick(() => {
+            const modalItem = this.getModalItem(id)
+            modalItem ? modalItem.$once('after-enter', () => resolve(modal))
+              : reject(new TypeError(NON_TRANSITION_ERR))
+          }))
+        })
+      },
+      resetCurrModal(modalId) {
+        modalId === this.currModalId && (this.currModal = null)
+      },
+      removeModal(modalId) {
+        const modalIndex = this.getModalIndex(modalId)
+        modalIndex + 1 && this.modals.splice(modalIndex, 1)
+        this.resetCurrModal(modalId)
+      },
+      handleBackdrop(e, id, backdrop) {
+        if (e.target !== e.currentTarget || backdrop === 'static') return
+        this.close(id)
       }
     }
   }

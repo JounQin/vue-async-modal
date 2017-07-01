@@ -1,7 +1,7 @@
 <template lang="pug">
-  #app Demo:
-    br
-    button.btn.btn-default(@click="addModal") Add Modal
+  #app.container
+    h4 Demo:
+    button.btn.btn-default(@click="basicModal") Basic Modal
     modal#modal
 </template>
 <script lang="js">
@@ -9,7 +9,7 @@
 
   export default {
     methods: {
-      addModal() {
+      basicModal() {
         this.$modal.open({
           component: import('BasicModal')
         }).then(modal => {
