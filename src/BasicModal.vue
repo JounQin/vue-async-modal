@@ -1,5 +1,7 @@
 <template lang="pug">
   modal-item(:class="$style.container", header="Basic Modal")
+    .text-center
+      button.btn.btn-primary(@click="$modal.clear()") Clear Modals
     .row
       .col-md-4 .col-md-4
       .col-md-4.col-md-offset-4 .col-md-4 .col-md-offset-4
@@ -32,7 +34,7 @@
       padding-top: 10px;
       padding-bottom: 10px;
       background-color: #eee;
-      background-color: rgba(86,61,124,.15);
+      background-color: rgba(86, 61, 124, .15);
       border: 1px solid #ddd;
-      border: 1px solid rgba(86,61,124,.2);
+      border: 1px solid rgba(86, 61, 124, .2);
 </style>
