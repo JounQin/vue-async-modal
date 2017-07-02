@@ -69,33 +69,16 @@
         return new Promise(resolve => getComputedStyle(modalItem.$el).display === 'none'
           ? callback(resolve) : modalItem.$once('after-leave', () => callback(resolve)))
       },
-      clear(immediate) {
+      closeAll(destroy = true, immediate) {
         let promise = Promise.resolve()
 
-        if (immediate) {
-          this.modals = []
-        } else {
-          this.modals.forEach(modal => { promise = promise.then(() => this.close(modal.id, true)) })
-        }
+        destroy && immediate ? (this.modals = []) : this.modals.forEach(modal => { promise = promise.then(() => this.close(modal.id, destroy)) })
 
         return promise
       },
       open(modal) {
         modal.id = modal.id || Date.now()
         return isPromise(modal.component) ? modal.component.then(component => this.resolve(Object.assign(modal, {component}))) : this.resolve(modal)
-      },
-      getModal(modalId) {
-        return this.modals.find(m => m.id === modalId)
-      },
-      getModalIndex(modalId) {
-        return this.modals.findIndex(m => m.id === modalId)
-      },
-      getModalRef(modalId) {
-        return this.$refs.modal[this.getModalIndex(modalId)]
-      },
-      getModalItem(modalId) {
-        const modalRef = this.getModalRef(modalId)
-        return modalRef && modalRef.$children[0]
       },
       resolve(modal) {
         const {id, component, props, options} = modal
@@ -131,6 +114,19 @@
               : reject(new TypeError(NON_TRANSITION_ERR))
           }))
         })
+      },
+      getModal(modalId) {
+        return this.modals.find(m => m.id === modalId)
+      },
+      getModalIndex(modalId) {
+        return this.modals.findIndex(m => m.id === modalId)
+      },
+      getModalRef(modalId) {
+        return this.$refs.modal[this.getModalIndex(modalId)]
+      },
+      getModalItem(modalId) {
+        const modalRef = this.getModalRef(modalId)
+        return modalRef && modalRef.$children[0]
       },
       resetCurrModal(modalId) {
         modalId === this.currModalId && (this.currModal = null)

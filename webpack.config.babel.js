@@ -35,7 +35,12 @@ export default {
       {
         test: /\.vue$/,
         use: {
-          loader: 'vue-loader'
+          loader: 'vue-loader',
+          options: {
+            cssModules: {
+              camelCase: true
+            }
+          }
         }
       },
       {
