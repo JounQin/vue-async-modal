@@ -1,7 +1,7 @@
 <template lang="pug">
   modal-item(:class="$style.container", header="Basic Modal")
-    .text-center
-      button.btn.btn-primary(@click="$modal.clear()") Clear Modals
+    .text-center(:class="$style.clear")
+      button.btn.btn-primary(@click="$modal.closeAll") Clear Modals
     .row
       .col-md-4 .col-md-4
       .col-md-4.col-md-offset-4 .col-md-4 .col-md-offset-4
@@ -31,10 +31,13 @@
 <style lang="stylus" module>
   .container
     :global([class*=col-])
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: #eee;
-      background-color: rgba(86, 61, 124, .15);
-      border: 1px solid #ddd;
-      border: 1px solid rgba(86, 61, 124, .2);
+      padding-top: 10px
+      padding-bottom: 10px
+      background-color: #eee
+      background-color: rgba(86, 61, 124, .15)
+      border: 1px solid #ddd
+      border: 1px solid rgba(86, 61, 124, .2)
+
+  .clear
+    padding-bottom 15px
 </style>

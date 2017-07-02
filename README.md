@@ -1,4 +1,6 @@
 # vue-async-modal
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/JounQin/vue-async-modal.svg)](https://greenkeeper.io/)
 Flexible modal component for Vue with ability of asynchronous lazy loading
 
 # Usage

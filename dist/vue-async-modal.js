@@ -1,6 +1,6 @@
 /*!
  * vue-async-modal Flexible modal component for Vue with ability of asynchronous lazy loading
- * Version 1.0.0-beta1
+ * Version 1.0.0-beta2
  * Copyright (C) 2017 JounQin <admin@1stg.me>
  * Released under the MIT license
  *
@@ -90,16 +90,13 @@ return _c(component,_vm._b({directives:[{name:"show",rawName:"v-show",value:(opt
       return new Promise(function (resolve) { return getComputedStyle(modalItem.$el).display === 'none'
         ? callback(resolve) : modalItem.$once('after-leave', function () { return callback(resolve); }); })
     },
-    clear: function clear(immediate) {
+    closeAll: function closeAll(destroy, immediate) {
       var this$1 = this;
+      if ( destroy === void 0 ) destroy = true;
 
       var promise = Promise.resolve();
 
-      if (immediate) {
-        this.modals = [];
-      } else {
-        this.modals.forEach(function (modal) { promise = promise.then(function () { return this$1.close(modal.id, true); }); });
-      }
+      destroy && immediate ? (this.modals = []) : this.modals.forEach(function (modal) { promise = promise.then(function () { return this$1.close(modal.id, destroy); }); });
 
       return promise
     },
@@ -108,19 +105,6 @@ return _c(component,_vm._b({directives:[{name:"show",rawName:"v-show",value:(opt
 
       modal.id = modal.id || Date.now();
       return isPromise(modal.component) ? modal.component.then(function (component) { return this$1.resolve(Object.assign(modal, {component: component})); }) : this.resolve(modal)
-    },
-    getModal: function getModal(modalId) {
-      return this.modals.find(function (m) { return m.id === modalId; })
-    },
-    getModalIndex: function getModalIndex(modalId) {
-      return this.modals.findIndex(function (m) { return m.id === modalId; })
-    },
-    getModalRef: function getModalRef(modalId) {
-      return this.$refs.modal[this.getModalIndex(modalId)]
-    },
-    getModalItem: function getModalItem(modalId) {
-      var modalRef = this.getModalRef(modalId);
-      return modalRef && modalRef.$children[0]
     },
     resolve: function resolve(modal) {
       var this$1 = this;
@@ -161,6 +145,19 @@ return _c(component,_vm._b({directives:[{name:"show",rawName:"v-show",value:(opt
             : reject(new TypeError(NON_TRANSITION_ERR));
         }); })
       })
+    },
+    getModal: function getModal(modalId) {
+      return this.modals.find(function (m) { return m.id === modalId; })
+    },
+    getModalIndex: function getModalIndex(modalId) {
+      return this.modals.findIndex(function (m) { return m.id === modalId; })
+    },
+    getModalRef: function getModalRef(modalId) {
+      return this.$refs.modal[this.getModalIndex(modalId)]
+    },
+    getModalItem: function getModalItem(modalId) {
+      var modalRef = this.getModalRef(modalId);
+      return modalRef && modalRef.$children[0]
     },
     resetCurrModal: function resetCurrModal(modalId) {
       modalId === this.currModalId && (this.currModal = null);
