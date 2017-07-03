@@ -47,7 +47,7 @@
     "stylus-loader": "^3.0.1",
     "url-loader": "^0.5.9",
     "vue": "^2.3.4",
-    "vue-loader": "^12.2.1",
+    "vue-loader": "^13.0.0",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0"
   }
