@@ -9,10 +9,10 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
 	typeof define === 'function' && define.amd ? define('vue-async-modal', ['exports', 'vue'], factory) :
-	(factory((global.VueAsyncModal = global.VueAsyncModal || {}),global.Vue));
+	(factory((global.VueAsyncModal = {}),global.Vue));
 }(this, (function (exports,Vue) { 'use strict';
 
-Vue = Vue && 'default' in Vue ? Vue['default'] : Vue;
+Vue = Vue && Vue.hasOwnProperty('default') ? Vue['default'] : Vue;
 
 var classRegExp = function (className) { return new RegExp(("(^|\\s+)" + (className.toString().trim()) + "(\\s+|$)"), 'g'); };
 
@@ -43,7 +43,7 @@ var id = ref.id;
 var component = ref.component;
 var props = ref.props;
 var options = ref.options;
-return _c(component,_vm._b({directives:[{name:"show",rawName:"v-show",value:(options.show),expression:"options.show"}],key:id,ref:"modal",refInFor:true,tag:"component",nativeOn:{"click":function($event){(function (e) { return _vm.handleBackdrop(e, id, options.backdrop); })($event);}}},'component',props))})],2):_vm._e()},staticRenderFns: [],
+return _c(component,_vm._b({directives:[{name:"show",rawName:"v-show",value:(options.show),expression:"options.show"}],key:id,ref:"modal",refInFor:true,tag:"component",nativeOn:{"click":function($event){(function (e) { return _vm.handleBackdrop(e, id, options.backdrop); })($event);}}},'component',props,false))})],2):_vm._e()},staticRenderFns: [],
   beforeCreate: function beforeCreate() {
     Object.defineProperty(Vue.prototype, '$modal', {
       value: this,

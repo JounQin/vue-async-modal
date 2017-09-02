@@ -39,10 +39,12 @@ export default {
  *
  * Github: https://github.com/JounQin/vue-async-modal
  */`,
-  entry: 'lib/index.js',
-  dest: `dist/vue-async-modal${isProd ? '.min' : ''}.js`,
-  format: 'umd',
-  moduleName: 'VueAsyncModal',
+  input: 'lib/index.js',
+  output: {
+    file: `dist/vue-async-modal${isProd ? '.min' : ''}.js`,
+    format: 'umd'
+  },
+  name: 'VueAsyncModal',
   amd: {
     id: 'vue-async-modal'
   },
