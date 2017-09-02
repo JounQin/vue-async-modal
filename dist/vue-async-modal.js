@@ -1,6 +1,6 @@
 /*!
  * vue-async-modal Flexible modal component for Vue with ability of asynchronous lazy loading
- * Version 1.0.0-beta2
+ * Version 1.0.0-beta4
  * Copyright (C) 2017 JounQin <admin@1stg.me>
  * Released under the MIT license
  *
@@ -104,7 +104,7 @@ return _c(component,_vm._b({directives:[{name:"show",rawName:"v-show",value:(opt
       var this$1 = this;
 
       modal.id = modal.id || Date.now();
-      return isPromise(modal.component) ? modal.component.then(function (component) { return this$1.resolve(Object.assign(modal, {component: component})); }) : this.resolve(modal)
+      return isPromise(modal.component) ? modal.component.then(function (component) { return this$1.resolve(Object.assign(modal, {component: component.default || component})); }) : this.resolve(modal)
     },
     resolve: function resolve(modal) {
       var this$1 = this;

@@ -78,7 +78,7 @@
       },
       open(modal) {
         modal.id = modal.id || Date.now()
-        return isPromise(modal.component) ? modal.component.then(component => this.resolve(Object.assign(modal, {component}))) : this.resolve(modal)
+        return isPromise(modal.component) ? modal.component.then(component => this.resolve(Object.assign(modal, {component: component.default || component}))) : this.resolve(modal)
       },
       resolve(modal) {
         const {id, component, props, options} = modal
