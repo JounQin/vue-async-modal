@@ -1,6 +1,6 @@
 /*!
  * vue-async-modal Flexible modal component for Vue with ability of asynchronous lazy loading
- * Version 1.0.0-beta4
+ * Version 1.0.0
  * Copyright (C) 2017 JounQin <admin@1stg.me>
  * Released under the MIT license
  *
