@@ -5,7 +5,7 @@ import HtmlPlugin from 'html-webpack-plugin'
 
 const NODE_ENV = process.env.NODE_ENV || 'development'
 
-const isProduction = NODE_ENV === 'production'
+const isProd = NODE_ENV === 'production'
 
 export default {
   resolve: {
@@ -14,11 +14,11 @@ export default {
     enforceExtension: false,
     enforceModuleExtension: false
   },
-  devtool: !isProduction && 'source-map',
+  devtool: !isProd && 'eval-source-map',
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     path: path.resolve(__dirname, 'docs'),
-    filename: `[name].[${isProduction ? 'chunkhash' : 'hash'}].js`
+    filename: `[name].[${isProd ? 'chunkhash' : 'hash'}].js`
   },
   module: {
     rules: [
@@ -59,21 +59,21 @@ export default {
       'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
     }),
     new webpack.LoaderOptionsPlugin({
-      minimize: isProduction,
+      minimize: isProd,
       stylus: {
         default: {
           paths: 'node_modules/bootstrap-styl'
         }
       }
     }),
-    new webpack.NamedModulesPlugin(),
     new HtmlPlugin({
       template: 'src/index.ejs',
       title: 'Vue Async Modal',
-      minify: isProduction && {
+      minify: isProd && {
         collapseWhitespace: true,
         minifyJS: true
       }
-    })
+    }),
+    ...isProd ? [new webpack.optimize.ModuleConcatenationPlugin()] : [new webpack.NamedModulesPlugin()]
   ]
 }
