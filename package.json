@@ -45,7 +45,7 @@
     "rollup-plugin-vue": "^2.4.1",
     "rollup-watch": "^4.3.1",
     "stylus-loader": "^3.0.1",
-    "url-loader": "^0.5.9",
+    "url-loader": "^0.6.1",
     "vue": "^2.4.2",
     "vue-loader": "^13.0.4",
     "webpack": "^3.5.5",
