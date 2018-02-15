@@ -39,7 +39,7 @@
     "nodemon": "^1.12.5",
     "pug": "^2.0.0-rc.4",
     "rimraf": "^2.6.2",
-    "rollup": "^0.55.0",
+    "rollup": "^0.56.0",
     "rollup-plugin-buble": "^0.19.1",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-uglify": "^3.0.0",
