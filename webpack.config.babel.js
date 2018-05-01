@@ -1,24 +1,25 @@
 import path from 'path'
 
 import webpack from 'webpack'
-import HtmlPlugin from 'html-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { VueLoaderPlugin } from 'vue-loader'
 
 const NODE_ENV = process.env.NODE_ENV || 'development'
 
 const isProd = NODE_ENV === 'production'
 
 export default {
+  mode: NODE_ENV,
   resolve: {
     modules: ['lib', 'src', 'node_modules'],
     extensions: ['.vue', '.js', '.styl'],
     enforceExtension: false,
-    enforceModuleExtension: false
+    enforceModuleExtension: false,
   },
-  devtool: !isProd && 'eval-source-map',
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     path: path.resolve(__dirname, 'docs'),
-    filename: `[name].[${isProd ? 'chunkhash' : 'hash'}].js`
+    filename: `[name].[${isProd ? 'contenthash' : 'hash'}].js`,
   },
   module: {
     rules: [
@@ -27,53 +28,65 @@ export default {
         use: {
           loader: 'babel-loader',
           options: {
-            cacheDirectory: true
-          }
+            cacheDirectory: true,
+          },
         },
-        exclude: /\bnode_modules\b/
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.pug$/,
+        loader: 'pug-plain-loader',
+      },
+      {
+        test: /\.styl(us)?$/,
+        oneOf: [
+          {
+            resourceQuery: /module/,
+            use: [
+              'vue-style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  camelCase: true,
+                  modules: true,
+                  localIdentName: '[local]_[hash:base64:5]',
+                },
+              },
+              'stylus-loader',
+            ],
+          },
+          {
+            use: ['vue-style-loader', 'css-loader', 'stylus-loader'],
+          },
+        ],
       },
       {
         test: /\.vue$/,
-        use: {
-          loader: 'vue-loader',
-          options: {
-            cssModules: {
-              camelCase: true
-            }
-          }
-        }
+        loader: 'vue-loader',
       },
       {
         test: /\.(svg|woff2?|eot|ttf)$/,
         use: {
           loader: 'url-loader',
           options: {
-            limit: 10000
-          }
-        }
-      }
-    ]
+            limit: 10000,
+          },
+        },
+      },
+    ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
-    }),
     new webpack.LoaderOptionsPlugin({
-      minimize: isProd,
       stylus: {
         default: {
-          paths: 'node_modules/bootstrap-styl'
-        }
-      }
+          paths: 'node_modules/bootstrap-styl',
+        },
+      },
     }),
-    new HtmlPlugin({
+    new HtmlWebpackPlugin({
       template: 'src/index.ejs',
       title: 'Vue Async Modal',
-      minify: isProd && {
-        collapseWhitespace: true,
-        minifyJS: true
-      }
     }),
-    ...isProd ? [new webpack.optimize.ModuleConcatenationPlugin()] : [new webpack.NamedModulesPlugin()]
-  ]
+    new VueLoaderPlugin(),
+  ],
 }

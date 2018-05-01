@@ -11,27 +11,35 @@ const isProd = NODE_ENV === 'production'
 
 const plugins = [
   replace({
-    'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
+    'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
   }),
   vue({
     css: false,
     compileOptions: {
-      preserveWhitespace: !isProd
-    }
+      preserveWhitespace: !isProd,
+    },
   }),
   buble({
-    objectAssign: 'Object.assign'
-  })
+    objectAssign: 'Object.assign',
+  }),
 ]
 
-isProd && plugins.push(uglify({
-  output: {
-    comments: true
-  }
-}))
+isProd &&
+  plugins.push(
+    uglify({
+      output: {
+        comments: true,
+      },
+    }),
+  )
 
 export default {
-  banner: `/*!
+  input: 'lib/index.js',
+  output: {
+    amd: {
+      id: 'vue-async-modal',
+    },
+    banner: `/*!
  * ${pkg.name} ${pkg.description}
  * Version ${pkg.version}
  * Copyright (C) 2017 JounQin <admin@1stg.me>
@@ -39,18 +47,13 @@ export default {
  *
  * Github: https://github.com/JounQin/vue-async-modal
  */`,
-  input: 'lib/index.js',
-  output: {
     file: `dist/vue-async-modal${isProd ? '.min' : ''}.js`,
-    format: 'umd'
-  },
-  name: 'VueAsyncModal',
-  amd: {
-    id: 'vue-async-modal'
+    format: 'umd',
+    globals: {
+      vue: 'Vue',
+    },
+    name: 'VueAsyncModal',
   },
   external: ['vue'],
-  globals: {
-    vue: 'Vue'
-  },
-  plugins
+  plugins,
 }
