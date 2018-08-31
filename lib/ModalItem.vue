@@ -47,4 +47,4 @@ export default {
   },
 }
 </script>
-<style src="./modal-item" lang="stylus"></style>
+<style src="./modal-item.styl" lang="stylus"></style>

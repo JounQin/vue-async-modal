@@ -17,6 +17,9 @@ import tip from 'tip'
 const { alert, confirm, prompt, toast } = tip
 
 export default {
+  components: {
+    Modal,
+  },
   methods: {
     basicModal(options) {
       this.$modal
@@ -25,6 +28,7 @@ export default {
           options,
         })
         .then(modal => {
+          // eslint-disable-next-line no-console
           console.log(modal.id)
         })
     },
@@ -57,9 +61,6 @@ export default {
     toast() {
       toast(`I'm Toast`)
     },
-  },
-  components: {
-    Modal,
   },
 }
 </script>

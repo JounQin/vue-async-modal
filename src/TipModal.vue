@@ -10,55 +10,61 @@
       .theme-color(:class="$style.btnPrompt", @click="confirmModal") {{ confirmText }}
 </template>
 <script>
-  import Vue from 'vue'
+import Vue from 'vue'
 
-  import ModalItem from 'ModalItem'
+import ModalItem from 'ModalItem'
 
-  export default {
-    name: 'tip-modal',
-    props: {
-      backdrop: Boolean,
-      tipText: String,
-      confirm: Function,
-      close: Function,
-      confirmText: String,
-      cancelText: String,
-      type: Number,
-      timeout: Number,
-      promptText: String,
-      placeholder: String
-    },
-    data() {
-      return {
-        text: this.promptText
-      }
-    },
-    mounted() {
+export default {
+  name: 'TipModal',
+  components: {
+    ModalItem,
+  },
+  props: {
+    backdrop: Boolean,
+    tipText: String,
+    confirm: Function,
+    close: Function,
+    confirmText: String,
+    cancelText: String,
+    type: Number,
+    timeout: Number,
+    promptText: String,
+    placeholder: String,
+  },
+  data() {
+    return {
+      text: this.promptText,
+    }
+  },
+  watch: {
+    type() {
       this.setToast()
     },
-    watch: {
-      type() {
-        this.setToast()
-      }
-    },
-    methods: {
-      setToast() {
-        this.type || setTimeout(() => {
+  },
+  mounted() {
+    this.setToast()
+  },
+  methods: {
+    setToast() {
+      this.type ||
+        setTimeout(() => {
           this.closeModal()
         }, this.timeout || 2000)
-      },
-      closeModal() {
-        this.close ? this.close(...arguments) : this.$modal.close()
-      },
-      confirmModal() {
-        this.confirm ? this.confirm(...this.type === 3 ? [this.text, ...arguments] : arguments)
-          : Vue.util.warn('you should handle the click event on the confirm btn by yourself!')
-      }
     },
-    components: {
-      ModalItem
-    }
-  }
+    closeModal() {
+      this.close ? this.close(...arguments) : this.$modal.close()
+    },
+    confirmModal() {
+      this.confirm
+        ? this.confirm(
+            ...(this.type === 3 ? [this.text, ...arguments] : arguments),
+          )
+        : Vue.util.warn(
+            'you should handle the click event on the confirm btn by yourself!',
+          )
+    },
+  },
+}
 </script>
 <style lang="stylus" module>
   $back-color = #e5e5e5

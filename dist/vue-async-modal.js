@@ -20,8 +20,10 @@
 
   var addClass = function (el, className) {
     var classNames = className.split(' ');
-    classNames.length > 1 ? classNames.forEach(function (className) { return addClass(el, className); })
-      : hasClass(el, className) || (el.className = ((el.className) + " " + className).trim());
+    classNames.length > 1
+      ? classNames.forEach(function (className) { return addClass(el, className); })
+      : hasClass(el, className) ||
+        (el.className = ((el.className) + " " + className).trim());
   };
 
   var removeClass = function (el, className) {
@@ -46,12 +48,6 @@
   var props = ref.props;
   var options = ref.options;
   return _c(component,_vm._b({directives:[{name:"show",rawName:"v-show",value:(options.show),expression:"options.show"}],key:id,ref:"modal",refInFor:true,tag:"component",nativeOn:{"click":function($event){return (function (e) { return _vm.handleBackdrop(e, id, options.backdrop); })($event)}}},'component',props,false))})],2):_vm._e()},staticRenderFns: [],
-    beforeCreate: function beforeCreate() {
-      Object.defineProperty(Vue.prototype, '$modal', {
-        value: this,
-        writable: "development" === 'development',
-      });
-    },
     data: function data() {
       return {
         modals: [],
@@ -65,6 +61,12 @@
     },
     watch: {
       currModal: function (modal) { return (modal ? addClass : removeClass)(document.body, 'modal-open'); },
+    },
+    beforeCreate: function beforeCreate() {
+      Object.defineProperty(Vue.prototype, '$modal', {
+        value: this,
+        writable: "development" === 'development',
+      });
     },
     methods: {
       close: function close(modalId, destroy) {
@@ -195,7 +197,7 @@
         this.close(id);
       },
     },
-  }
+  };
 
   var ModalItem = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":_vm.transition},on:{"after-enter":function($event){_vm.$emit('after-enter');},"after-leave":function($event){_vm.$emit('after-leave');}}},[_c('div',{staticClass:"modal",attrs:{"id":_vm.id,"tabindex":"-1","role":"dialog"}},[_c('div',{staticClass:"modal-dialog"},[_c('div',{staticClass:"modal-content"},[(_vm.$slots.header)?_c('div',{staticClass:"modal-header"},[_vm._t("header")],2):(_vm.header)?_c('div',{staticClass:"modal-header"},[_c('button',{staticClass:"close",attrs:{"type":"button"},on:{"click":_vm.closeModal}},[_vm._v("×")]),(_vm.header)?_c('h4',{staticClass:"modal-title",domProps:{"innerHTML":_vm._s(_vm.header)}}):_vm._e()]):_vm._e(),(_vm.$slots.body)?_vm._t("body"):_c('div',{staticClass:"modal-body"},[_vm._t("default")],2),(_vm.$slots.footer)?_c('div',{staticClass:"modal-footer"},[_vm._t("footer")],2):(_vm.footer)?_c('div',{staticClass:"modal-footer"},[_c('div',{staticClass:"btn btn-default",on:{"click":_vm.closeModal}},[_vm._v(_vm._s(_vm.cancelText || '取消'))]),_c('div',{staticClass:"btn btn-primary",attrs:{"disabled":_vm.disabled},on:{"click":_vm.confirmModal}},[_vm._v(_vm._s(_vm.confirmText || '确定'))])]):_vm._e()],2)])])])},staticRenderFns: [],
     props: {
@@ -219,7 +221,7 @@
         this.$emit('confirm');
       },
     },
-  }
+  };
 
   exports.Modal = Modal;
   exports.ModalItem = ModalItem;

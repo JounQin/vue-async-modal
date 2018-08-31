@@ -4,19 +4,20 @@ node_js: stable
 
 cache: yarn
 
-before_install: yarn global add greenkeeper-lockfile
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+  - yarn global add greenkeeper-lockfile
+  - git config --global user.name 'JounQin'
+  - git config --global user.email 'admin@1stg.me'
 
 before_script: greenkeeper-lockfile-update
 
-script: yarn lint
+script:
+  - set -e
+  - yarn lint
+  - yarn build
+  - yarn docs
+  - 'if [[ $TRAVIS_BRANCH = "master" && "$TRAVIS_PULL_REQUEST" = "false" ]]; then yarn sync; fi'
 
 after_script: greenkeeper-lockfile-upload
-
-deploy:
-  provider: npm
-  email: admin@1stg.me
-  api_key:
-    secure: BiWLrEv8v2vryEtSoWSIyZy7+vJmbVeCfO3Fq3WPW25jCk3PnpaPxbXVeXfuweqYwRILVIRODsPFGLBnxVmmIplNofgygFAZWFR5B7vrIX9X3yC5hRlMHsdWUyhyS6bZO6rTJB2qA8x9sUd+lQZfxSRnz2PcBSfvEP/H5P7vnmkRaxU3CAeX1VxJeavVKSafFsH1EXYCcWAN/zkaKQDxhqxRBgFDbu4tbC3ooodVx1FOpFLarwlaig/bfal3H3Kj+zFoloJkz2dWJ0mbkJ0oBhwf8lvIGwr7yGzun8/dHXltmQTqIFGuCT6Kw/QqpfvFn0u6ayOOjU/D029IMglIQand9rPgMy0s0/fryT58GTMV6NrNbLsqVKCEnYMP2X7b+LbQOMjARPMYCt/zPnvQvo9Gg2+9RQTRCI+iZI7pUDipvGp1eyvxgWPYq1CJIRk7CUAnMXRTmyjVD1A/JYh0MRKFX3xTe3/MDOSqtf5DOlWR1rcDoR21Sm6agwGpW/Efaz69a1xW7EJWdRoAT5stT3lAPrmHXr5AJHeXFvK1AHptvXVIixN/JpWVKG0+s40OLUs2qb3xJJKVGWgVDYH4WTB4Z6bRXIdPMsPH5T5yhYaOyzk1IRatXvAHKl9U0DRxWfn2ajx+k1E/nhdpL13eyJHFyOBayJccRO0VA4cx2nc=
-  on:
-    tags: true
-    repo: JounQin/vue-async-modal

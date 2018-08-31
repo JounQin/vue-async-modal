@@ -28,12 +28,6 @@ const NON_TRANSITION_ERR =
   'this modal item is not a Vue component, you should use `transition` component and emit `after-leave` event'
 
 export default {
-  beforeCreate() {
-    Object.defineProperty(Vue.prototype, '$modal', {
-      value: this,
-      writable: process.env.NODE_ENV === 'development',
-    })
-  },
   data() {
     return {
       modals: [],
@@ -48,6 +42,12 @@ export default {
   watch: {
     currModal: modal =>
       (modal ? addClass : removeClass)(document.body, 'modal-open'),
+  },
+  beforeCreate() {
+    Object.defineProperty(Vue.prototype, '$modal', {
+      value: this,
+      writable: process.env.NODE_ENV === 'development',
+    })
   },
   methods: {
     close(modalId, destroy) {

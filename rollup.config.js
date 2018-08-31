@@ -1,6 +1,6 @@
 import buble from 'rollup-plugin-buble'
 import replace from 'rollup-plugin-replace'
-import uglify from 'rollup-plugin-uglify'
+import { uglify } from 'rollup-plugin-uglify'
 import vue from 'rollup-plugin-vue'
 
 const pkg = require('./package.json')
@@ -24,7 +24,7 @@ const plugins = [
   }),
 ]
 
-isProd &&
+if (isProd) {
   plugins.push(
     uglify({
       output: {
@@ -32,6 +32,7 @@ isProd &&
       },
     }),
   )
+}
 
 export default {
   input: 'lib/index.js',

@@ -1,15 +1,15 @@
 {
-  "presets": [
+  presets: [
     [
-      "env",
+      '@babel/env',
       {
-        "modules": false,
-        "uglify": true
-      }
+        modules: false,
+        useBuiltIns: 'entry',
+      },
     ],
-    "stage-0"
   ],
-  "plugins": [
-    "transform-vue-jsx"
-  ]
+  plugins: [
+    '@babel/syntax-dynamic-import',
+    '@vue/babel-plugin-transform-vue-jsx',
+  ],
 }
