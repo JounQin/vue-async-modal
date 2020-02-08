@@ -1,0 +1,13 @@
+{
+  "name": "vue-async-modal",
+  "version": 2,
+  "github": {
+    "silent": true
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "extends": "@1stg",
+  "rules": {
+    "vue/require-default-prop": 0
+  }
+}
