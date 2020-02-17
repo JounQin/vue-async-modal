@@ -30,29 +30,6 @@
     stylelint "^13.1.0"
     tslib "^1.10.0"
 
-"@1stg/babel-preset@^0.11.2":
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/@1stg/babel-preset/-/babel-preset-0.11.2.tgz#a4c53b8ce46fcaae38357d40bed4e00cd7702c29"
-  integrity sha512-kgtlRaqkxDVcTPMe4xUprFBzuUUHdcukv3dVesesIl5VpV/+yC/2z/l19GWOJelshAK7bMB21mdy0RPFErt6CQ==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.8.3"
-    "@babel/plugin-proposal-class-properties" "^7.8.3"
-    "@babel/plugin-proposal-decorators" "^7.8.3"
-    "@babel/preset-env" "^7.8.4"
-    "@babel/preset-react" "^7.8.3"
-    "@babel/preset-typescript" "^7.8.3"
-    "@pkgr/utils" "^0.3.9"
-    "@vue/babel-helper-vue-jsx-merge-props" "^1.0.0"
-    "@vue/babel-preset-jsx" "^1.1.2"
-    babel-plugin-import "^1.13.0"
-    babel-plugin-transform-async-to-promises "^0.8.15"
-    babel-plugin-transform-react-remove-prop-types "^0.4.24"
-    babel-plugin-transform-remove-console "^6.9.4"
-    babel-plugin-transform-typescript-metadata "^0.2.2"
-    babel-preset-proposal-typescript "^1.5.0"
-    core-js "^3.6.4"
-    fast-async "^7.0.6"
-
 "@1stg/babel-preset@^0.12.2":
   version "0.12.2"
   resolved "https://registry.yarnpkg.com/@1stg/babel-preset/-/babel-preset-0.12.2.tgz#d1855058708870a409be713c84406636aef02fdc"
@@ -1805,18 +1782,6 @@
   resolved "https://registry.yarnpkg.com/@pkgr/umd-globals/-/umd-globals-0.4.2.tgz#357a339d6339b3426f8438557ec5671ded0266ce"
   integrity sha512-kn7wWp77QlX5CttWatcvutZPMRpjcAypCyRp6mluN/V/8WoO7S64HRQ3wXC2agvaky2EBmaeUMtUKo8YNXoJPQ==
 
-"@pkgr/utils@^0.3.9":
-  version "0.3.9"
-  resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-0.3.9.tgz#9d420a1f78646f4e66c06ea51287edbf40d22231"
-  integrity sha512-h1i46p/XRHtfnApca4S7AvxyL785EqgHgnHvM6uWe/2dIbM/PhgvTiujYDwxvTdqOQ9mj3/yIM2x41/+WRhBfw==
-  dependencies:
-    chalk "^3.0.0"
-    cross-spawn "^7.0.1"
-    is-glob "^4.0.1"
-    open "^7.0.2"
-    tiny-glob "^0.2.6"
-    tslib "^1.10.0"
-
 "@pkgr/utils@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-0.4.0.tgz#16a17ced2310e92226e3badcb170fcd1b6a6e17a"
@@ -1841,14 +1806,14 @@
     tiny-glob "^0.2.6"
     tslib "^1.10.0"
 
-"@pkgr/webpack-vue@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@pkgr/webpack-vue/-/webpack-vue-0.3.0.tgz#90d9ab3fa4d70fe783fa19b02dbdd52f5a8cd3e3"
-  integrity sha512-a26q1Ob5hQnBJItLjBgrqPLuGDrERKPWxs0VB2sPFC2uxPInz3i92+fSkjzJ/DgNIapcDjmoo1LEF9TexdYlRw==
+"@pkgr/webpack-vue@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@pkgr/webpack-vue/-/webpack-vue-0.3.2.tgz#c66bf24f622c3c98afac28601439dba8e606a175"
+  integrity sha512-6WKUBaY7yT1/RI23uqMdhY5Dt9tAcgaGVOtezhjjUTPOGizT4Qc5P7Ml8bMZ7uh8sSW8IgkqN3lkUJf/H2iFCQ==
   dependencies:
-    vue-loader "^15.8.3"
+    vue-loader "^15.9.0"
     vue-style-loader "^4.1.2"
-    vue-svg-loader "^0.15.0"
+    vue-svg-loader "^0.16.0"
 
 "@pkgr/webpack@^0.6.2":
   version "0.6.2"
@@ -14365,10 +14330,10 @@ svg-tags@^1.0.0:
   resolved "https://registry.yarnpkg.com/svg-tags/-/svg-tags-1.0.0.tgz#58f71cee3bd519b59d4b2a843b6c7de64ac04764"
   integrity sha1-WPcc7jvVGbWdSyqEO2x95krAR2Q=
 
-svg-to-vue@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/svg-to-vue/-/svg-to-vue-0.6.0.tgz#d5de9ec7126ac3c11adf8cfad013a6264ef57184"
-  integrity sha512-SYGJMBq5EHt/nIJxZ4kA9A6bilaFXtOPFJRoMQ2ml/jFP4N9L7HVFTm+5WCFN3QFnEUXtH6BHzpoOlwP1/5+2A==
+svg-to-vue@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/svg-to-vue/-/svg-to-vue-0.7.0.tgz#ec86deb1742be38319462e36703af1dfa2f9fad9"
+  integrity sha512-Tg2nMmf3BQorYCAjxbtTkYyWPVSeox5AZUFvfy4MoWK/5tuQlnA/h3LAlTjV3sEvOC5FtUNovRSj3p784l4KOA==
   dependencies:
     svgo "^1.3.2"
 
@@ -15289,10 +15254,10 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
 
-vue-loader@^15.8.3:
-  version "15.8.3"
-  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.8.3.tgz#857cb9e30eb5fc25e66db48dce7e4f768602a23c"
-  integrity sha512-yFksTFbhp+lxlm92DrKdpVIWMpranXnTEuGSc0oW+Gk43M9LWaAmBTnfj5+FCdve715mTHvo78IdaXf5TbiTJg==
+vue-loader@^15.9.0:
+  version "15.9.0"
+  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.9.0.tgz#5d4b0378a4606188fc83e587ed23c94bc3a10998"
+  integrity sha512-FeDHvTSpwyLeF7LIV1PYkvqUQgTJ8UmOxhSlCyRSxaXCKk+M6NF4tDQsLsPPNeDPyR7TfRQ8MLg6v+8PsDV9xQ==
   dependencies:
     "@vue/component-compiler-utils" "^3.1.0"
     hash-sum "^1.0.2"
@@ -15313,13 +15278,13 @@ vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-svg-loader@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/vue-svg-loader/-/vue-svg-loader-0.15.0.tgz#09bb9929c3f8955a246ea80909e26139badc0509"
-  integrity sha512-698GfXu9k2wPxI382Qf7MfrtBXjIjThqmOsksVKHqeTvVO+Ary9q69SVzA6EEJmj5vmF5u1KRVb/I1BDh4fPTQ==
+vue-svg-loader@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/vue-svg-loader/-/vue-svg-loader-0.16.0.tgz#adccbdc9aca90132bde9c9d96cd49f74efecd345"
+  integrity sha512-2RtFXlTCYWm8YAEO2qAOZ2SuIF2NvLutB5muc3KDYoZq5ZeCHf8ggzSan3ksbbca7CJ/Aw57ZnDF4B7W/AkGtw==
   dependencies:
     loader-utils "^1.2.3"
-    svg-to-vue "^0.6.0"
+    svg-to-vue "^0.7.0"
 
 vue-template-compiler@^2.6.11:
   version "2.6.11"
