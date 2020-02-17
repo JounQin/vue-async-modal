@@ -226,20 +226,6 @@
     prettier-plugin-sh "^0.2.8"
     prettier-plugin-toml "^0.3.1"
 
-"@1stg/postcss-config@^0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@1stg/postcss-config/-/postcss-config-0.7.2.tgz#bb9e6a0394a57e0d9b40d3750382fb11801085c3"
-  integrity sha512-2DXibRlqmbxTBmesbhwazvAd91fivjl5IJ9UBlq+skswOZGOR1qQ0EW4neh8Kg401joziSw43lPcBc0frOqyWA==
-  dependencies:
-    autoprefixer "^9.7.4"
-    cssnano "^4.1.10"
-    cssnano-preset-advanced "^4.0.7"
-    postcss-import "^12.0.1"
-    postcss-modules "^1.5.0"
-    postcss-normalize "^8.0.1"
-    postcss-preset-env "^6.7.0"
-    postcss-url "^8.0.0"
-
 "@1stg/postcss-config@^0.8.2":
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/@1stg/postcss-config/-/postcss-config-0.8.2.tgz#ad22d1ec8a649b489b9e152f82eb1d146045d949"
@@ -1840,6 +1826,11 @@
   resolved "https://registry.yarnpkg.com/@pkgr/es-modules/-/es-modules-0.3.0.tgz#3bfd07e237d68044f430693d7d21179edd9aad8e"
   integrity sha512-WBBa3N9jOvXEZm8aCjkDbS3d91DPl6U2A9V80t9Dzz7vO4h40N1Ng/bXp/tqi3IP4oQXI2NN9bDDM7zVLGh5JQ==
 
+"@pkgr/es-modules@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@pkgr/es-modules/-/es-modules-0.3.2.tgz#a804328701d683fbc249b59b0d0a4bfa82c7cf72"
+  integrity sha512-QWMh+ObjnENvr9C2xEvnU2Y2jwB9WBfaukqjQBJxWARFX2unP24e8x3tjkygld+UqRz2gbAw9BED5OW6pPMxqA==
+
 "@pkgr/imagemin@^0.4.0":
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/@pkgr/imagemin/-/imagemin-0.4.2.tgz#512996b9467359bcda6dcfa96b81c358789592c9"
@@ -1900,6 +1891,11 @@
   resolved "https://registry.yarnpkg.com/@pkgr/umd-globals/-/umd-globals-0.4.0.tgz#c103eac3c91236a5b4c37e40fbf6bfc566d443d0"
   integrity sha512-dWKDZtsvCsc6ALREbglmoR9HdtxSmBFuqDsvU5RHZFrMxUL4HADt2Cv2TsHvgreewjtsEOk48yUytR38qBnK2Q==
 
+"@pkgr/umd-globals@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@pkgr/umd-globals/-/umd-globals-0.4.2.tgz#357a339d6339b3426f8438557ec5671ded0266ce"
+  integrity sha512-kn7wWp77QlX5CttWatcvutZPMRpjcAypCyRp6mluN/V/8WoO7S64HRQ3wXC2agvaky2EBmaeUMtUKo8YNXoJPQ==
+
 "@pkgr/utils@^0.3.9":
   version "0.3.9"
   resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-0.3.9.tgz#9d420a1f78646f4e66c06ea51287edbf40d22231"
@@ -1924,6 +1920,18 @@
     tiny-glob "^0.2.6"
     tslib "^1.10.0"
 
+"@pkgr/utils@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-0.4.2.tgz#a1b01df79a9d6a9c5530b771071b13eba1e29fd7"
+  integrity sha512-rsWdcD0dPb6ptiTbZvVsr3ZjB9DSuynh9fsRYAK9yev86DpQluQLBjepXV2EEQGr7FE/iwgSazrkz2zy/aNWWQ==
+  dependencies:
+    chalk "^3.0.0"
+    cross-spawn "^7.0.1"
+    is-glob "^4.0.1"
+    open "^7.0.2"
+    tiny-glob "^0.2.6"
+    tslib "^1.10.0"
+
 "@pkgr/webpack-vue@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@pkgr/webpack-vue/-/webpack-vue-0.3.0.tgz#90d9ab3fa4d70fe783fa19b02dbdd52f5a8cd3e3"
@@ -1933,17 +1941,17 @@
     vue-style-loader "^4.1.2"
     vue-svg-loader "^0.15.0"
 
-"@pkgr/webpack@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@pkgr/webpack/-/webpack-0.6.0.tgz#2b343115affb8deec4fad523b5452b30c660a681"
-  integrity sha512-1MmW2mDkmIXPsVcIPBm9sum2/lrLZogRuRCnpMYz0Q5GTQD/2sSfuRimjJyVXJvuATmNu9ZJ2ZAfhaBRZCehJg==
+"@pkgr/webpack@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@pkgr/webpack/-/webpack-0.6.2.tgz#96ac26af747b72856c3004dbab7ce136eea62f1a"
+  integrity sha512-1F1Lf3wezvxeTIelZj6aPQ8pu2WYqa7V3NVOPhGAcPqBu1HjWBf2cxeVyPaNkQac2ECEVt3TiXko3fPzpxADxA==
   dependencies:
-    "@1stg/babel-preset" "^0.11.2"
-    "@1stg/postcss-config" "^0.7.2"
+    "@1stg/babel-preset" "^0.12.2"
+    "@1stg/postcss-config" "^0.8.2"
     "@babel/core" "^7.8.4"
-    "@pkgr/es-modules" "^0.3.0"
-    "@pkgr/umd-globals" "^0.4.0"
-    "@pkgr/utils" "^0.4.0"
+    "@pkgr/es-modules" "^0.3.2"
+    "@pkgr/umd-globals" "^0.4.2"
+    "@pkgr/utils" "^0.4.2"
     babel-loader "^8.0.6"
     cache-loader "^4.1.0"
     case-sensitive-paths-webpack-plugin "^2.3.0"
@@ -1961,7 +1969,7 @@
     html-webpack-plugin "^3.2.0"
     jsox "^1.1.121"
     lazy-compile-webpack-plugin "^0.1.11"
-    less "^3.10.3"
+    less "^3.11.1"
     less-loader "^5.0.0"
     lodash "^4.17.15"
     mini-css-extract-plugin "^0.9.0"
@@ -1981,7 +1989,7 @@
     tsconfig-paths-webpack-plugin "^3.2.0"
     tslib "^1.10.0"
     url-loader "^3.0.0"
-    webpack "^4.41.5"
+    webpack "^4.41.6"
     webpack-dev-server "^3.10.3"
     workbox-webpack-plugin "^5.0.0"
 
@@ -8924,7 +8932,24 @@ less-loader@^5.0.0:
     loader-utils "^1.1.0"
     pify "^4.0.1"
 
-less@^3.10.3, less@^3.9.0:
+less@^3.11.1:
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/less/-/less-3.11.1.tgz#c6bf08e39e02404fe6b307a3dfffafdc55bd36e2"
+  integrity sha512-tlWX341RECuTOvoDIvtFqXsKj072hm3+9ymRBe76/mD6O5ZZecnlAOVDlWAleF2+aohFrxNidXhv2773f6kY7g==
+  dependencies:
+    clone "^2.1.2"
+    tslib "^1.10.0"
+  optionalDependencies:
+    errno "^0.1.1"
+    graceful-fs "^4.1.2"
+    image-size "~0.5.0"
+    mime "^1.4.1"
+    mkdirp "^0.5.0"
+    promise "^7.1.1"
+    request "^2.83.0"
+    source-map "~0.6.0"
+
+less@^3.9.0:
   version "3.10.3"
   resolved "https://registry.yarnpkg.com/less/-/less-3.10.3.tgz#417a0975d5eeecc52cff4bcfa3c09d35781e6792"
   integrity sha512-vz32vqfgmoxF1h3K4J+yKCtajH0PWmjkIFgbs5d78E/c/e+UQTnI+lWK+1eQRE95PXM2mC3rJlLSSP9VQHnaow==
@@ -15595,10 +15620,10 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0, webpack-sources@^1.4.0, webpack-
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.41.5:
-  version "4.41.5"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.5.tgz#3210f1886bce5310e62bb97204d18c263341b77c"
-  integrity sha512-wp0Co4vpyumnp3KlkmpM5LWuzvZYayDwM2n17EHFr4qxBBbRokC7DJawPJC7TfSFZ9HZ6GsdH40EBj4UV0nmpw==
+webpack@^4.41.6:
+  version "4.41.6"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.6.tgz#12f2f804bf6542ef166755050d4afbc8f66ba7e1"
+  integrity sha512-yxXfV0Zv9WMGRD+QexkZzmGIh54bsvEs+9aRWxnN8erLWEOehAKUTeNBoUbA6HPEZPlRo7KDi2ZcNveoZgK9MA==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"
