@@ -53,6 +53,29 @@
     core-js "^3.6.4"
     fast-async "^7.0.6"
 
+"@1stg/babel-preset@^0.12.3":
+  version "0.12.3"
+  resolved "https://registry.yarnpkg.com/@1stg/babel-preset/-/babel-preset-0.12.3.tgz#5abf485476c28dfe36ecb751877239a5986defcd"
+  integrity sha512-ELl6qbXJXvVFq8/FytMB3Bfpv+cCJhrcesF1Gu1iFammCQNDVUPeTIETr79cNZGX3fG3+nk4cHcWUqCvxddN0w==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.8.3"
+    "@babel/plugin-proposal-class-properties" "^7.8.3"
+    "@babel/plugin-proposal-decorators" "^7.8.3"
+    "@babel/preset-env" "^7.8.4"
+    "@babel/preset-react" "^7.8.3"
+    "@babel/preset-typescript" "^7.8.3"
+    "@pkgr/utils" "^0.4.2"
+    "@vue/babel-helper-vue-jsx-merge-props" "^1.0.0"
+    "@vue/babel-preset-jsx" "^1.1.2"
+    babel-plugin-import "^1.13.0"
+    babel-plugin-transform-async-to-promises "^0.8.15"
+    babel-plugin-transform-react-remove-prop-types "^0.4.24"
+    babel-plugin-transform-remove-console "^6.9.4"
+    babel-plugin-transform-typescript-metadata "^0.2.2"
+    babel-preset-proposal-typescript "^1.5.0"
+    core-js "^3.6.4"
+    fast-async "^7.0.6"
+
 "@1stg/browserslist-config@^0.6.2":
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/@1stg/browserslist-config/-/browserslist-config-0.6.2.tgz#6f6229682a9bae4045b1e86ec5426c6248596333"
@@ -1806,6 +1829,18 @@
     tiny-glob "^0.2.6"
     tslib "^1.10.0"
 
+"@pkgr/utils@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-0.4.3.tgz#e690b19d52bc0526fad49eb95d00709a5935e7f3"
+  integrity sha512-DSwOiJYd+dGAiGFoQY0U0UNvMci+4Wb4jfDIwCWs0sSexkJZzFAhkkrsuTt8b/ZQeRmWiYKQRVv9bEJQKKz/hQ==
+  dependencies:
+    chalk "^3.0.0"
+    cross-spawn "^7.0.1"
+    is-glob "^4.0.1"
+    open "^7.0.2"
+    tiny-glob "^0.2.6"
+    tslib "^1.11.0"
+
 "@pkgr/webpack-vue@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@pkgr/webpack-vue/-/webpack-vue-0.3.2.tgz#c66bf24f622c3c98afac28601439dba8e606a175"
@@ -1815,17 +1850,17 @@
     vue-style-loader "^4.1.2"
     vue-svg-loader "^0.16.0"
 
-"@pkgr/webpack@^0.6.2":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@pkgr/webpack/-/webpack-0.6.2.tgz#96ac26af747b72856c3004dbab7ce136eea62f1a"
-  integrity sha512-1F1Lf3wezvxeTIelZj6aPQ8pu2WYqa7V3NVOPhGAcPqBu1HjWBf2cxeVyPaNkQac2ECEVt3TiXko3fPzpxADxA==
+"@pkgr/webpack@^0.6.3":
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/@pkgr/webpack/-/webpack-0.6.3.tgz#95228bda54ba6a0aa4f7e3fa6ad86f1c5c635812"
+  integrity sha512-1niTG90oFIuy7xHclSCMmzhYYO8xD1/IZS+QBnFNTczGSt0P+93iVkAHIdtT2xacZN3Uyfkrc3sEYgMGXUHWuQ==
   dependencies:
-    "@1stg/babel-preset" "^0.12.2"
+    "@1stg/babel-preset" "^0.12.3"
     "@1stg/postcss-config" "^0.8.2"
     "@babel/core" "^7.8.4"
     "@pkgr/es-modules" "^0.3.2"
     "@pkgr/umd-globals" "^0.4.2"
-    "@pkgr/utils" "^0.4.2"
+    "@pkgr/utils" "^0.4.3"
     babel-loader "^8.0.6"
     cache-loader "^4.1.0"
     case-sensitive-paths-webpack-plugin "^2.3.0"
@@ -1835,7 +1870,7 @@
     css-loader "^3.4.2"
     debug "^4.1.1"
     exports-loader "^0.7.0"
-    file-loader "^5.0.2"
+    file-loader "^5.1.0"
     friendly-errors-webpack-plugin "^1.7.0"
     html-loader "^0.5.5"
     html-webpack-harddisk-plugin "^1.0.1"
@@ -1847,7 +1882,7 @@
     less-loader "^5.0.0"
     lodash "^4.17.15"
     mini-css-extract-plugin "^0.9.0"
-    postcss "^7.0.26"
+    postcss "^7.0.27"
     postcss-load-config "^2.1.0"
     postcss-loader "^3.0.0"
     pug "^2.0.4"
@@ -1861,7 +1896,7 @@
     stylus-loader "^3.0.2"
     thread-loader "^2.1.3"
     tsconfig-paths-webpack-plugin "^3.2.0"
-    tslib "^1.10.0"
+    tslib "^1.11.0"
     url-loader "^3.0.0"
     webpack "^4.41.6"
     webpack-dev-server "^3.10.3"
@@ -5391,6 +5426,11 @@ emojis-list@^2.0.0:
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
   integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
 
+emojis-list@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-3.0.0.tgz#5570662046ad29e2e916e71aae260abdff4f6a78"
+  integrity sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==
+
 encodeurl@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
@@ -6240,12 +6280,12 @@ file-entry-cache@^5.0.1:
   dependencies:
     flat-cache "^2.0.1"
 
-file-loader@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-5.0.2.tgz#7f3d8b4ac85a5e8df61338cfec95d7405f971caa"
-  integrity sha512-QMiQ+WBkGLejKe81HU8SZ9PovsU/5uaLo0JdTCEXOYv7i7jfAjHZi1tcwp9tSASJPOmmHZtbdCervFmXMH/Dcg==
+file-loader@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-5.1.0.tgz#cb56c070efc0e40666424309bd0d9e45ac6f2bb8"
+  integrity sha512-u/VkLGskw3Ue59nyOwUwXI/6nuBCo7KBkniB/l7ICwr/7cPNGsL1WCXUp3GB0qgOOKU1TiP49bv4DZF/LJqprg==
   dependencies:
-    loader-utils "^1.2.3"
+    loader-utils "^1.4.0"
     schema-utils "^2.5.0"
 
 file-type@5.2.0, file-type@^5.2.0:
@@ -8914,6 +8954,15 @@ loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3:
     emojis-list "^2.0.0"
     json5 "^1.0.1"
 
+loader-utils@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
+  integrity sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
+  dependencies:
+    big.js "^5.2.2"
+    emojis-list "^3.0.0"
+    json5 "^1.0.1"
+
 locate-path@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-2.0.0.tgz#2b568b265eec944c6d9c0de9c3dbbbca0354cd8e"
@@ -11366,6 +11415,15 @@ postcss@^7, postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, po
   version "7.0.26"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.26.tgz#5ed615cfcab35ba9bbb82414a4fa88ea10429587"
   integrity sha512-IY4oRjpXWYshuTDFxMVkJDtWIk2LhsTlu8bZnbEJA4+bYT16Lvpo8Qv6EvDumhYRgzjZl489pmsY3qVgJQ08nA==
+  dependencies:
+    chalk "^2.4.2"
+    source-map "^0.6.1"
+    supports-color "^6.1.0"
+
+postcss@^7.0.27:
+  version "7.0.27"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.27.tgz#cc67cdc6b0daa375105b7c424a85567345fc54d9"
+  integrity sha512-WuQETPMcW9Uf1/22HWUWP9lgsIC+KEHg2kozMflKjbeUtw9ujvFX6QmIfozaErDkmLWS9WEnEdEe6Uo9/BNTdQ==
   dependencies:
     chalk "^2.4.2"
     source-map "^0.6.1"
@@ -14715,6 +14773,11 @@ tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+
+tslib@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.0.tgz#f1f3528301621a53220d58373ae510ff747a66bc"
+  integrity sha512-BmndXUtiTn/VDDrJzQE7Mm22Ix3PxgLltW9bSNLoeCY31gnG2OPx0QqJnuc9oMIKioYrz487i6K9o4Pdn0j+Kg==
 
 tsutils@^3.17.1:
   version "3.17.1"
