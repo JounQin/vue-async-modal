@@ -34,7 +34,7 @@
   "devDependencies": {
     "@1stg/app-config": "^0.4.2",
     "@1stg/lib-config": "^0.4.2",
-    "@d-ts/vue": "^0.4.2",
+    "@d-ts/vue": "^0.4.3",
     "@pkgr/webpack": "^0.6.3",
     "@pkgr/webpack-vue": "^0.3.2",
     "@types/webpack": "^4.41.6",
