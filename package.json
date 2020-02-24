@@ -32,7 +32,7 @@
     "vue": "^2.0.0"
   },
   "devDependencies": {
-    "@1stg/app-config": "^0.4.2",
+    "@1stg/app-config": "^0.4.3",
     "@1stg/lib-config": "^0.4.3",
     "@d-ts/vue": "^0.4.3",
     "@pkgr/webpack": "^0.6.3",
