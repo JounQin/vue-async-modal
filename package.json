@@ -47,7 +47,7 @@
     "vue": "^2.6.11",
     "vue-async-modal": "link:src",
     "vue-template-compiler": "^2.6.11",
-    "yarn-deduplicate": "^1.1.1"
+    "yarn-deduplicate": "^2.0.0"
   },
   "resolutions": {
     "@pkgr/rollup": "^0.10.0",
