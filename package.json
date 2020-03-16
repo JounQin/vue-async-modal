@@ -51,6 +51,6 @@
   },
   "resolutions": {
     "@pkgr/rollup": "^0.10.0",
-    "imagemin-gifsicle": "^6.0.1"
+    "imagemin-gifsicle": "^7.0.0"
   }
 }
