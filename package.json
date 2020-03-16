@@ -50,7 +50,7 @@
     "yarn-deduplicate": "^1.1.1"
   },
   "resolutions": {
-    "@pkgr/rollup": "^0.10.0",
+    "@pkgr/rollup": "^0.10.3",
     "imagemin-gifsicle": "^6.0.1"
   }
 }
