@@ -162,7 +162,9 @@ export default {
       return modalRef && modalRef.$children[0]
     },
     resetCurrModal(modalId) {
-      modalId === this.currModalId && (this.currModal = null)
+      if (modalId === this.currModalId) {
+        this.currModal = null
+      }
     },
     removeModal(modalId) {
       const modalIndex = this.getModalIndex(modalId)
@@ -170,7 +172,9 @@ export default {
       this.resetCurrModal(modalId)
     },
     handleBackdrop(e, id, backdrop) {
-      if (e.target !== e.currentTarget || backdrop === 'static') return
+      if (e.target !== e.currentTarget || backdrop === 'static') {
+        return
+      }
       this.close(id)
     },
   },
