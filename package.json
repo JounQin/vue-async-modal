@@ -1,6 +1,6 @@
 {
   "name": "vue-async-modal",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Flexible modal component for Vue with ability of asynchronous lazy loading",
   "repository": "git+https://github.com/JounQin/vue-async-modal.git",
   "author": "JounQin <admin@1stg.me>",
