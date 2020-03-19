@@ -1,6 +1,6 @@
 {
   "name": "vue-async-modal",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Flexible modal component for Vue with ability of asynchronous lazy loading",
   "repository": "git+https://github.com/JounQin/vue-async-modal.git",
   "author": "JounQin <admin@1stg.me>",
@@ -21,7 +21,7 @@
     "build": "run-p build:*",
     "build:docs": "w -e docs -p",
     "build:r": "r -p",
-    "build:ts": "tsc -P src && cpy 'src/*.vue' lib",
+    "build:ts": "tsc -P src && cpy 'src/*.{scss,vue}' lib",
     "dev": "w -e docs",
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,vue -f friendly",
