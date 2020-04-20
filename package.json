@@ -38,7 +38,7 @@
     "@d-ts/vue": "^0.4.3",
     "@pkgr/webpack": "^0.6.3",
     "@pkgr/webpack-vue": "^0.3.2",
-    "@types/webpack": "^4.41.11",
+    "@types/webpack": "^4.41.12",
     "@types/webpack-env": "^1.15.1",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.5",
