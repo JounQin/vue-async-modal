@@ -37,7 +37,7 @@
     "@1stg/lib-config": "^0.5.4",
     "@d-ts/vue": "^0.4.3",
     "@pkgr/webpack": "^0.6.3",
-    "@pkgr/webpack-vue": "^0.3.2",
+    "@pkgr/webpack-vue": "^0.3.3",
     "@types/webpack": "^4.41.12",
     "@types/webpack-env": "^1.15.2",
     "bootstrap": "^4.4.1",
