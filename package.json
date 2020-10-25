@@ -49,7 +49,7 @@
     "vue": "^2.6.12",
     "vue-async-modal": "link:src",
     "vue-template-compiler": "^2.6.12",
-    "yarn-deduplicate": "^2.1.1"
+    "yarn-deduplicate": "^3.1.0"
   },
   "resolutions": {
     "imagemin-gifsicle": "^6.0.1"
